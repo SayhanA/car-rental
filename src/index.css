@@ -1,5 +1,9 @@
+/*  Fonts  */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
 @import "tailwindcss";
 
+/* Custom css */
 @theme {
   --color-background: var(--background);
   --color-card-bg: var(--card-bg);
@@ -32,4 +36,8 @@
     --text-dark: rgb(0, 0, 0);
     --text-lite: rgb(130, 127, 127);
   }
+}
+
+* {
+  font-family: "Outfit", sans-serif;
 }

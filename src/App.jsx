@@ -1,18 +1,4 @@
-import React, { useEffect } from "react";
-
 const App = () => {
-  const selectedTheme = localStorage.getItem("theme");
-
-  useEffect(() => {
-    if (selectedTheme) {
-      document.body.classList.add(selectedTheme);
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.add("light");
-    }
-  }, [selectedTheme]);
-
   return (
     <div className="bg-background flex min-h-screen items-center justify-center">
       <div className="group bg-card-bg w-full max-w-sm cursor-pointer rounded-xl p-8 px-4 shadow-lg">
