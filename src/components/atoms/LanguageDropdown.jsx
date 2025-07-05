@@ -1,9 +1,14 @@
+import i18next from "i18next";
 import { useEffect, useRef, useState } from "react";
-import useTheme from "../../hooks/useThemes";
-import Button from "./Button";
+import ToggleBottomSvg from "../../assets/svgs/ToggleBottomSvg";
+import Button from "./Button"; // Your custom Button component
 
-const ThemeToggle = () => {
-  const [theme, setTheme] = useTheme();
+const lngs = {
+  en: { nativeName: "English", flag: "🇺🇸" },
+  bn: { nativeName: "বাংলা", flag: "🇧🇩" },
+};
+
+const LanguageDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -18,11 +23,7 @@ const ThemeToggle = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const themeIcons = {
-    light: "☀️",
-    dark: "🌙",
-    system: "🖥️",
-  };
+  const currentLng = i18next.resolvedLanguage;
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -30,35 +31,36 @@ const ThemeToggle = () => {
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="true"
         aria-expanded={isOpen}
-        className="hover:bg-border/50 flex w-[100px] items-center gap-2 border-0 px-4 py-2"
-        variant="outline"
+        className="hover:bg-border/50 flex items-center gap-2 border-0 bg-transparent p-2"
       >
-        <span className="text-base">{themeIcons[theme] || "🎨"}</span>
-        <span className="capitalize">{theme}</span>
+        <span className="text-base">{lngs[currentLng]?.flag || "🌐"}</span>
+        <span>{currentLng.toUpperCase()}</span>
+        <ToggleBottomSvg className={isOpen ? "rotate-180" : ""} />
       </Button>
 
       {isOpen && (
-        <div className="absolute right-0 z-10 mt-2 w-40 rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
+        <div className="absolute right-0 z-10 mt-2 w-40 rounded-md border border-gray-200 bg-white shadow-lg">
           <div className="py-1">
-            {["light", "dark", "system"].map((option) => (
+            {Object.keys(lngs).map((lng) => (
               <button
-                key={option}
+                key={lng}
                 onClick={() => {
-                  setTheme(option);
+                  i18next.changeLanguage(lng);
                   setIsOpen(false);
                 }}
+                disabled={currentLng === lng}
                 className={`flex w-full items-center px-4 py-2 text-left text-sm ${
-                  theme === option
-                    ? "bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400"
-                    : "text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
+                  currentLng === lng
+                    ? "bg-blue-50 text-blue-600"
+                    : "text-gray-700 hover:bg-gray-100"
                 }`}
-                aria-current={theme === option ? "true" : undefined}
+                aria-current={currentLng === lng ? "true" : undefined}
               >
-                <span className="mr-2 text-base">{themeIcons[option]}</span>
-                <span className="capitalize">{option}</span>
-                {theme === option && (
+                <span className="mr-2 text-base">{lngs[lng].flag}</span>
+                <span>{lngs[lng].nativeName}</span>
+                {currentLng === lng && (
                   <svg
-                    className="ml-auto h-4 w-4 text-blue-500 dark:text-blue-400"
+                    className="ml-auto h-4 w-4 text-blue-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -80,4 +82,4 @@ const ThemeToggle = () => {
   );
 };
 
-export default ThemeToggle;
+export default LanguageDropdown;

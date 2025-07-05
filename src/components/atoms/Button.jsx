@@ -5,6 +5,11 @@ const Button = ({
   onClick,
   type = "button",
   className = "",
+  secondary = false,
+  danger = false,
+  error = false,
+  loading = false,
+  disabled = false,
   ...props
 }) => {
   const base =
@@ -12,13 +17,13 @@ const Button = ({
 
   let variantClass = "";
 
-  if (props.error || props.danger) {
+  if (danger || error) {
     variantClass =
       "bg-red-600 text-text-dark hover:bg-red-700 focus:ring-red-600";
-  } else if (props.secondary) {
+  } else if (secondary) {
     variantClass =
       "bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-400";
-  } else if (props.loading) {
+  } else if (loading) {
     variantClass =
       "bg-yellow-400 text-black hover:bg-yellow-500 focus:ring-yellow-500 cursor-wait";
   } else {
@@ -28,17 +33,16 @@ const Button = ({
 
   const merged = twMerge(base, variantClass, className);
 
-  return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={merged}
-      disabled={props.loading || props.disabled}
-      {...props}
-    >
-      {props.loading ? "Loading..." : children}
-    </button>
-  );
+  // Filter out props that shouldn't be passed to the DOM
+  const buttonProps = {
+    type,
+    onClick,
+    className: merged,
+    disabled: loading || disabled,
+    ...props,
+  };
+
+  return <button {...buttonProps}>{loading ? "Loading..." : children}</button>;
 };
 
 export default Button;
