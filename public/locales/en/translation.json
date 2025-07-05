@@ -1,5 +1,12 @@
 {
+  "Trans": "Trans",
+  "Ren": "Ren",
   "About": "About",
   "Cars": "Cars",
-  "Contact": "Contact"
+  "Contact": "Contact",
+  "Search cars": "Search cars",
+  "light": "light",
+  "dark": "dark",
+  "system": "system",
+  "signup": "signup"
 }

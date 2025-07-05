@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`bg-background fixed top-0 right-0 left-0 z-50 transition-transform duration-300 ease-in-out ${atTop ? "bg-transparent" : "shadow-shadow shadow-lg"} ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+      className={`fixed top-0 right-0 left-0 z-50 transition-transform duration-300 ease-in-out ${atTop ? "bg-transparent" : "shadow-shadow bg-background shadow-lg"} ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
     >
       <div className="border-border container mx-auto flex items-center justify-between gap-10 border-0 border-b py-4">
         <Link
@@ -46,7 +46,8 @@ const Navbar = () => {
         >
           <LogoSvg className="text-text-dark w-12" />
           <p className="text-text-dark inline-block text-2xl font-bold">
-            Ride<span className="text-blue-500">_Rent</span>
+            {t("Trans")}
+            <span className="text-blue-500">{t("Ren")}</span>
           </p>
         </Link>
 
@@ -67,7 +68,7 @@ const Navbar = () => {
               type="text"
               name="search"
               id="search-input"
-              placeholder="Search cars..."
+              placeholder={t("Search cars") + "..."}
               className="text-text-dark placeholder:text-text-lite w-full border-0 ps-5 pe-10 outline-0"
             />
 
@@ -79,12 +80,11 @@ const Navbar = () => {
 
           <div className="flex">
             <LanguageDropdown />
-
             <ThemeToggle />
           </div>
           {/* <Button className="font-bold">Login</Button> */}
-          <Button className="font-bold" secondary>
-            SignUp
+          <Button className="font-bold capitalize" secondary>
+            {t("signup")}
           </Button>
         </div>
       </div>

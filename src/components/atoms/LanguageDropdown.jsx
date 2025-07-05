@@ -1,7 +1,7 @@
 import i18next from "i18next";
 import { useEffect, useRef, useState } from "react";
 import ToggleBottomSvg from "../../assets/svgs/ToggleBottomSvg";
-import Button from "./Button"; // Your custom Button component
+import Button from "./Button";
 
 const lngs = {
   en: { nativeName: "English", flag: "🇺🇸" },
@@ -12,7 +12,6 @@ const LanguageDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -24,10 +23,6 @@ const LanguageDropdown = () => {
   }, []);
 
   const currentLng = i18next.resolvedLanguage;
-  console.log(
-    "🚀 ~ LanguageDropdown.jsx:23 ~ LanguageDropdown ~ currentLng:",
-    currentLng,
-  );
 
   return (
     <div className="relative" ref={dropdownRef}>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import useTheme from "../../hooks/useThemes";
 import Button from "./Button";
 
@@ -6,6 +7,7 @@ const ThemeToggle = () => {
   const [theme, setTheme] = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const { t } = useTranslation();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -34,7 +36,8 @@ const ThemeToggle = () => {
         variant="outline"
       >
         <span className="text-base">{themeIcons[theme] || "🎨"}</span>
-        <span className="capitalize">{theme}</span>
+        <span className="capitalize">{t(theme)}</span>{" "}
+        {/* Translated theme label */}
       </Button>
 
       {isOpen && (
@@ -55,7 +58,8 @@ const ThemeToggle = () => {
                 aria-current={theme === option ? "true" : undefined}
               >
                 <span className="mr-2 text-base">{themeIcons[option]}</span>
-                <span className="capitalize">{option}</span>
+                <span className="capitalize">{t(option)}</span>{" "}
+                {/* Translated option */}
                 {theme === option && (
                   <svg
                     className="ml-auto h-4 w-4 text-blue-500 dark:text-blue-400"
