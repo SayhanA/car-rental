@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import useTheme from "../../hooks/useThemes";
 import Button from "./Button";
 
-const ThemeToggle = () => {
+const ThemeToggle = ({className=""}) => {
   const [theme, setTheme] = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -27,12 +27,12 @@ const ThemeToggle = () => {
   };
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className={`relative ${className}`} ref={dropdownRef}>
       <Button
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="true"
         aria-expanded={isOpen}
-        className="hover:bg-border/50 flex w-[100px] items-center gap-2 border-0 px-4 py-2"
+        className="hover:bg-border/50 flex w-full items-center gap-2 border-0 px-4 py-2"
         variant="outline"
       >
         <span className="text-base">{themeIcons[theme] || "🎨"}</span>
@@ -41,7 +41,7 @@ const ThemeToggle = () => {
       </Button>
 
       {isOpen && (
-        <div className="absolute right-0 z-10 mt-2 w-40 rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
+        <div className="absolute right-0 z-10 mt-2 min-w-40 w-full rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
           <div className="py-1">
             {["light", "dark", "system"].map((option) => (
               <button

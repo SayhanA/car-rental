@@ -8,7 +8,7 @@ const lngs = {
   bn: { nativeName: "বাংলা", flag: "🇧🇩" },
 };
 
-const LanguageDropdown = () => {
+const LanguageDropdown = ({className=""}) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -25,12 +25,12 @@ const LanguageDropdown = () => {
   const currentLng = i18next.resolvedLanguage;
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className={`relative ${className}`} ref={dropdownRef}>
       <Button
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="true"
         aria-expanded={isOpen}
-        className="hover:bg-border/50 flex items-center gap-2 border-0 bg-transparent p-2"
+        className="hover:bg-border/50 flex w-full items-center gap-2 border-0 bg-transparent p-2"
       >
         <span className="text-base">{lngs[currentLng]?.flag || "🌐"}</span>
         <span>{currentLng?.toUpperCase()}</span>
@@ -38,7 +38,7 @@ const LanguageDropdown = () => {
       </Button>
 
       {isOpen && (
-        <div className="absolute right-0 z-10 mt-2 w-40 rounded-md border border-gray-200 bg-white shadow-lg">
+        <div className="absolute right-0 z-10 mt-2 min-w-40 w-full rounded-md border border-gray-200 bg-white shadow-lg">
           <div className="py-1">
             {Object.keys(lngs).map((lng) => (
               <button

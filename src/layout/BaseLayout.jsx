@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../components/organisms/Footer";
-import Navbar from "../components/organisms/Navbar";
+import Header from "../components/organisms/Header";
 
 const BaseLayout = () => {
   return (
     <>
-      <Navbar />
+      <Header />
       <main className="mt-20">
         <Outlet />
       </main>
