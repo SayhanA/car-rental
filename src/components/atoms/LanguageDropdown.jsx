@@ -24,6 +24,10 @@ const LanguageDropdown = () => {
   }, []);
 
   const currentLng = i18next.resolvedLanguage;
+  console.log(
+    "🚀 ~ LanguageDropdown.jsx:23 ~ LanguageDropdown ~ currentLng:",
+    currentLng,
+  );
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -34,7 +38,7 @@ const LanguageDropdown = () => {
         className="hover:bg-border/50 flex items-center gap-2 border-0 bg-transparent p-2"
       >
         <span className="text-base">{lngs[currentLng]?.flag || "🌐"}</span>
-        <span>{currentLng.toUpperCase()}</span>
+        <span>{currentLng?.toUpperCase()}</span>
         <ToggleBottomSvg className={isOpen ? "rotate-180" : ""} />
       </Button>
 

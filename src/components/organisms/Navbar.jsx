@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import LogoSvg from "../../assets/svgs/LogoSvg";
@@ -9,6 +10,9 @@ import ThemeToggle from "../atoms/ThemeToggle";
 
 const Navbar = () => {
   const { t } = useTranslation();
+  const [isVisible, setIsVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [atTop, setAtTop] = useState(true);
 
   const navList = [
     { id: 122, tab: "Cars", path: "/cars" },
@@ -16,9 +20,25 @@ const Navbar = () => {
     { id: 124, tab: "Contact", path: "/contact" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setAtTop(currentScrollPos < 20);
+      const visible = prevScrollPos > currentScrollPos || currentScrollPos < 0;
+
+      setIsVisible(visible);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
+
   return (
-    <header className="shadow-shadow shadow-lg">
-      <div className="container mx-auto flex items-center justify-between gap-10 py-4">
+    <header
+      className={`bg-background fixed top-0 right-0 left-0 z-50 transition-transform duration-300 ease-in-out ${atTop ? "bg-transparent" : "shadow-shadow shadow-lg"} ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+    >
+      <div className="border-border container mx-auto flex items-center justify-between gap-10 border-0 border-b py-4">
         <Link
           to={`/`}
           id="logo"
@@ -57,9 +77,11 @@ const Navbar = () => {
             </Button>
           </div>
 
-          <LanguageDropdown />
+          <div className="flex">
+            <LanguageDropdown />
 
-          <ThemeToggle />
+            <ThemeToggle />
+          </div>
           {/* <Button className="font-bold">Login</Button> */}
           <Button className="font-bold" secondary>
             SignUp
