@@ -1,9 +1,10 @@
-import HeroSearchForm from "../molicules/HeroSearchForm";
-import SilverCar from "../../assets/images/Hero-silver-car.png";
-import BlackCar from "../../assets/images/Hero-black-car.png";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import SilverCar from "../../assets/images/Hero-silver-car.png";
+import HeroSearchForm from "../molicules/HeroSearchForm";
 
 const HeroHome = () => {
+  const { t } = useTranslation();
   let theme = localStorage.getItem("theme");
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const HeroHome = () => {
           className="text-text-dark mb-10 max-w-[640px] text-center text-5xl leading-[60px] font-bold"
           style={{ wordSpacing: ".5rem" }}
         >
-          Find Your Perfect Transport for Rental
+          {t("Find Your Perfect Transport for Rental")}
         </p>
 
         <HeroSearchForm />
