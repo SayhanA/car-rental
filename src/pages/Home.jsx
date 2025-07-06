@@ -1,13 +1,12 @@
-import { Hero } from "../components/organisms/Hero";
+import FeaturedCars from "../components/organisms/FeaturedCars";
+import HeroHome from "../components/organisms/HeroHome";
 
 const Home = () => {
-  // const counter = useSelector((state) => state.counter.value);
-  // const dispatch = useDispatch();
-
   return (
-    <>
-      <Hero />
-    </>
+    <div>
+      <HeroHome />
+      <FeaturedCars />
+    </div>
   );
 };
 
