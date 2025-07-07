@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import NotFoundSvg from "../assets/svgs/NotFoundSvg";
 import Button from "../components/atoms/Button";
 
 const NotFound = () => {
@@ -10,7 +11,8 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-4 text-center">
-      <h1 className="mb-4 text-4xl font-bold">404 - Page Not Found</h1>
+      <NotFoundSvg />
+      <h1 className="mt-10 mb-4 text-4xl font-bold">404 - Page Not Found</h1>
       <p className="mb-6">Sorry, the page you requested does not exist.</p>
       <Button
         onClick={handleNavigate}
