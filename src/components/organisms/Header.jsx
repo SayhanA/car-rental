@@ -5,9 +5,9 @@ import LogoSvg from "../../assets/svgs/LogoSvg";
 import Button from "../atoms/Button";
 import LanguageDropdown from "../atoms/LanguageDropdown";
 import SearchBar from "../atoms/SearchBar";
+import ThemeToggle from "../atoms/ThemeToggle";
 import Navbar from "../molicules/Navbar";
 import Sidebar from "../molicules/Sidebar";
-import ThemeToggle from "../atoms/ThemeToggle";
 
 const Header = () => {
   const { t } = useTranslation();

@@ -139,7 +139,7 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="flex-1 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className="flex-1 rounded-md border border-white px-3 py-2 text-white placeholder:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
                 <button
                   type="submit"

@@ -1,11 +1,14 @@
+import AboutForm from "../components/molicules/AboutForm";
+import GetInTouch from "../components/molicules/GetInTouch";
+
 const About = () => {
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat eaque
-      voluptatem qui exercitationem unde ut repudiandae sequi libero, mollitia
-      enim dicta? Fugiat, esse ullam sed cumque accusamus sunt reprehenderit
-      placeat!I
-    </div>
+    <>
+      <section>
+        <GetInTouch />
+        <AboutForm />
+      </section>
+    </>
   );
 };
 
