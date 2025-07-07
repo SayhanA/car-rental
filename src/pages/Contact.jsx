@@ -1,5 +1,13 @@
+import AboutForm from "../components/molicules/AboutForm";
+import GetInTouch from "../components/molicules/GetInTouch";
+
 const Contact = () => {
-  return <div>Contact</div>;
+  return (
+    <>
+      <GetInTouch />
+      <AboutForm />
+    </>
+  );
 };
 
 export default Contact;
