@@ -1,9 +1,9 @@
-/* eslint-disable no-unused-vars */
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import ToggleBottomSvg from "../../assets/svgs/ToggleBottomSvg";
 import SearchSvg from "../../assets/svgs/SearchSvg";
+import ToggleBottomSvg from "../../assets/svgs/ToggleBottomSvg";
+import Button from "../atoms/Button";
 
 const HeroSearchForm = () => {
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
@@ -35,7 +35,7 @@ const HeroSearchForm = () => {
   };
 
   return (
-    <div className="bg-background mx-auto rounded-full p-6 shadow-md shadow-shadow">
+    <div className="bg-background shadow-shadow mx-auto rounded-full p-6 shadow-md">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -138,7 +138,7 @@ const HeroSearchForm = () => {
                 <label className="text-text-dark mb-1 flex items-center gap-2 text-lg font-medium">
                   Transport Categories <ToggleBottomSvg />
                 </label>
-                <div className="bg-background absolute max-h-10 group-hover:max-h-48 min-w-[150px] space-y-1 overflow-auto rounded-md p-2 opacity-0 shadow-lg transition-all group-hover:opacity-100">
+                <div className="bg-background absolute max-h-10 min-w-[150px] space-y-1 overflow-auto rounded-md p-2 opacity-0 shadow-lg transition-all group-hover:max-h-48 group-hover:opacity-100">
                   {transportOptions.map((option) => (
                     <label
                       key={option}
@@ -172,13 +172,13 @@ const HeroSearchForm = () => {
 
               {/* Search Button */}
               <div>
-                <button
+                <Button
                   type="submit"
                   disabled={isSubmitting}
                   className="flex w-full items-center justify-center gap-2 rounded-full bg-blue-600 p-3 px-6 font-medium text-white transition duration-300 hover:bg-blue-700"
                 >
                   <SearchSvg /> Search
-                </button>
+                </Button>
               </div>
             </div>
           </Form>

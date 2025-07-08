@@ -62,7 +62,7 @@ const GetInTouch = () => {
         {whatsappCards.map((card) => (
           <article
             key={card.id}
-            className="bg-background/0 flex h-[300px] min-w-[250px] grow basis-2 flex-col justify-between rounded-xl p-10 shadow-2xl"
+            className="bg-background/0 shadow-shadow flex h-[300px] min-w-[250px] grow basis-2 flex-col justify-between rounded-xl p-10 shadow-2xl"
           >
             <div>
               <FaWhatsapp className="text-3xl text-blue-600" />

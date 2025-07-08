@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import useTheme from "../../hooks/useThemes";
 import Button from "./Button";
 
-const ThemeToggle = ({className=""}) => {
+const ThemeToggle = ({ className = "" }) => {
   const [theme, setTheme] = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -41,7 +41,7 @@ const ThemeToggle = ({className=""}) => {
       </Button>
 
       {isOpen && (
-        <div className="absolute right-0 z-10 mt-2 min-w-40 w-full rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
+        <div className="absolute right-0 z-10 mt-2 w-full min-w-40 rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
           <div className="py-1">
             {["light", "dark", "system"].map((option) => (
               <button

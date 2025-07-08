@@ -1,6 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import house from "../../assets/images/house1.png";
+import Button from "../atoms/Button";
 import SectionDescripton from "../atoms/SectionDescripton";
 import SectionTitle from "../atoms/SectionTitle";
 
@@ -146,12 +147,12 @@ const AboutForm = () => {
 
             {/* Submit Button */}
             <div className="text-center">
-              <button
+              <Button
                 type="submit"
                 className="w-full rounded-sm bg-blue-700 px-6 py-3 font-medium text-white transition hover:bg-blue-800"
               >
                 Submit Form
-              </button>
+              </Button>
             </div>
           </Form>
         </Formik>

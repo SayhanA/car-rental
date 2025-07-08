@@ -10,10 +10,11 @@ const Button = ({
   error = false,
   loading = false,
   disabled = false,
+  "aria-label": ariaLabel,
   ...props
 }) => {
   const base =
-    "inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 focus:outline-none disabled:opacity-50 disabled:pointer-events-none cursor-pointer outline:none h-fit py-3 px-8";
+    "inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 focus:outline-none disabled:opacity-50 disabled:pointer-events-none cursor-pointer outline-none h-fit py-3 px-8";
 
   let variantClass = "";
 
@@ -33,12 +34,20 @@ const Button = ({
 
   const merged = twMerge(base, variantClass, className);
 
-  // Filter out props that shouldn't be passed to the DOM
+  const hasAccessibleName = Boolean(children) || Boolean(ariaLabel);
+  // eslint-disable-next-line no-undef
+  if (process.env.NODE_ENV === "development" && !hasAccessibleName) {
+    console.warn(
+      "[Accessibility Warning] <Button /> rendered without accessible name. Please provide visible children or an aria-label.",
+    );
+  }
+
   const buttonProps = {
     type,
     onClick,
     className: merged,
     disabled: loading || disabled,
+    "aria-label": ariaLabel,
     ...props,
   };
 

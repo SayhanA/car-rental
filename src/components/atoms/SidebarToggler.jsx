@@ -1,4 +1,8 @@
-const SidebarToggler = ({ className="", isActive = false, setIsActive = null }) => {
+const SidebarToggler = ({
+  className = "",
+  isActive = false,
+  setIsActive = null,
+}) => {
   const toggleSidebar = () => {
     setIsActive(!isActive);
   };

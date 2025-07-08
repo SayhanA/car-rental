@@ -1,8 +1,7 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
-import Button from "./Button";
-import SearchSvg from "../../assets/svgs/SearchSvg";
 import { twMerge } from "tailwind-merge";
+import SearchSvg from "../../assets/svgs/SearchSvg";
+import Button from "./Button";
 
 const SearchBar = ({ className = "" }) => {
   const { t } = useTranslation();
@@ -22,8 +21,10 @@ const SearchBar = ({ className = "" }) => {
         className="text-text-dark placeholder:text-text-lite w-full border-0 ps-5 pe-10 outline-0"
       />
 
-      <Button className="group border-0 hover:bg-transparent">
-        {" "}
+      <Button
+        aria-label={t("Search")}
+        className="group border-0 hover:bg-transparent"
+      >
         <SearchSvg className="text-icon absolute end-4 scale-110 transition-all group-hover:scale-120" />
       </Button>
     </div>

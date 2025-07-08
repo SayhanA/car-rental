@@ -6,6 +6,7 @@
 /* Custom css */
 @theme {
   --color-background: var(--background);
+  --color-bg-secondary: var(--bg-secondary);
   --color-card-bg: var(--card-bg);
 
   --color-border: var(--border);
@@ -43,6 +44,7 @@
 
 .light {
   --background: rgb(243, 247, 255);
+  --bg-secondary: rgb(237, 246, 255);
   --card-bg: rgb(255, 255, 255);
 
   --border: rgba(225, 225, 225, 1);
@@ -51,7 +53,7 @@
 
   --icon: rgba(122, 123, 125, 1);
   --text-dark: rgb(0, 0, 0);
-  --text-lite: rgb(130, 127, 127);
+  --text-lite: rgb(66, 64, 64);
 }
 
 .dark {
