@@ -19,7 +19,7 @@ const FeaturedCars = () => {
         </SectionDescripton>
 
         <div className="mt-16 grid justify-items-center gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {carData.map((car) => (
+          {carData.slice(0, 3).map((car) => (
             <Card key={car?.id} data={car} />
           ))}
         </div>
