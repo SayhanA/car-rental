@@ -8,13 +8,14 @@ import {
 } from "react-icons/fa";
 import LogoSvg from "../../assets/svgs/LogoSvg";
 import Text from "../atoms/Text";
+import TextLg from "../atoms/TextLg";
 import TextSM from "../atoms/TextSM";
 
 const Footer = () => {
   return (
     <footer className="bg-blue-900 py-12 text-blue-100 dark:bg-slate-900 dark:text-slate-200">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 md:grid-cols-4">
           {/* Logo + description + social */}
           <div>
             <div className="mb-4 flex items-center space-x-2">
@@ -53,7 +54,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
+            <TextLg className="mb-4 text-lg font-semibold text-white">
+              Quick Links
+            </TextLg>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="#cars" className="hover:underline">
@@ -85,7 +88,9 @@ const Footer = () => {
 
           {/* Support */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold">Support</h3>
+            <TextLg className="mb-4 text-lg font-semibold text-white">
+              Support
+            </TextLg>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="#help" className="hover:underline">
@@ -116,8 +121,10 @@ const Footer = () => {
           </div>
 
           {/* Contact info + newsletter */}
-          <div>
-            <h3 className="mb-4 text-lg font-semibold">Contact Info</h3>
+          <div className="w-fit overflow-hidden">
+            <TextLg className="mb-4 text-lg font-semibold text-white">
+              Contact Info
+            </TextLg>
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-2">
                 <FaPhone className="text-blue-400" />
@@ -134,8 +141,10 @@ const Footer = () => {
             </div>
 
             <div className="mt-6">
-              <h4 className="mb-2 text-base font-semibold">Newsletter</h4>
-              <form className="flex flex-col gap-2 sm:flex-row">
+              <Text className="mb-2 text-base font-semibold text-white">
+                Newsletter
+              </Text>
+              <form className="flex flex-col gap-2">
                 <input
                   type="email"
                   placeholder="Your email"
@@ -143,7 +152,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="rounded-md bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
+                  className="w-fit rounded-md bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
                 >
                   Subscribe
                 </button>

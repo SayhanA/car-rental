@@ -113,21 +113,21 @@ const PriceRangeSelector = ({
           ["min", minValue, setMinValue, min, maxValue - step],
           ["max", maxValue, setMaxValue, minValue + step, max],
         ].map(([type, value, setter, minLimit, maxLimit]) => (
-          <div className="flex w-fit justify-between" key={type}>
-            {/* <label
+          <div className="flex w-fit flex-col justify-between" key={type}>
+            <label
               htmlFor={`${type}Price`}
               className="mb-1 block text-sm font-medium text-gray-700"
             >
               {type === "min" ? "Min Price" : "Max Price"}
-            </label> */}
+            </label>
             <div className="relative rounded-md shadow-sm">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2">
                 <span className="text-gray-500 sm:text-sm">$</span>
               </div>
               <input
                 type="number"
                 id={`${type}Price`}
-                className="border-border block max-w-[100px] rounded-md border py-2 ps-6 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                className="border-border block max-w-[100px] rounded-md border py-2 ps-4 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 value={value}
                 min={minLimit}
                 max={maxLimit}

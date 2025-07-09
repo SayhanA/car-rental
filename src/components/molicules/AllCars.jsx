@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { RiMenuFill } from "react-icons/ri";
 import carData from "../../data/featureCarList";
+import UseOutClickDetect from "../../hooks/UseOutClickDetect";
+import useScrollLock from "../../hooks/useScrollLock";
 import AvailablitySelector from "../atoms/AvailablitySelector";
 import Button from "../atoms/Button";
+import CarBrandsSelector from "../atoms/CarBrandsSelector";
 import Card from "../atoms/Card";
 import EngineTypeSelector from "../atoms/EngineTypeSelector";
 import PriceRangeSelector from "../atoms/PriceRangeSelector";
@@ -12,9 +16,11 @@ import YearRangeSelector from "../atoms/YearRangeSelector";
 const CHUNK_SIZE = 6;
 
 const AllCars = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [visibleCars, setVisibleCars] = useState(CHUNK_SIZE);
   const loaderRef = useRef(null);
 
+  useScrollLock(isOpen);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -48,22 +54,48 @@ const AllCars = () => {
   ];
 
   return (
-    <section className="my-20 min-h-screen">
+    <section className="mx-5 my-10 min-h-screen overflow-hidden">
       <div className="container mx-auto">
-        <div className="flex gap-10">
-          <div className="relative min-w-[350px]">
-            <div className="filter-scrollbar top-5 w-full overflow-y-auto pb-10">
+        <div className="flex gap-5 min-[1400px]:gap-10">
+          {/* <div className="hidden min-[1280px]:block">
+            <div className="filter-scrollbar top-5 h-full w-full overflow-scroll pb-10">
               <PriceRangeSelector />
               <AvailablitySelector />
+              <CarBrandsSelector />
               <SeatsRangeSelector />
               <YearRangeSelector />
               <TransmissionSelector />
               <EngineTypeSelector />
             </div>
-          </div>
-          <div>
+          </div> */}
+          <UseOutClickDetect
+            onOutsideClick={() => {
+              setIsOpen(false);
+            }}
+          >
+            <div
+              className={`max-[1280px]:bg-background transition-transform duration-300 max-[1280px]:fixed max-[1280px]:end-0 max-[1280px]:top-0 max-[1280px]:z-40 max-[1280px]:h-screen max-[1280px]:min-w-[320px] max-[1280px]:p-2 ${isOpen ? "max-[1280px]:translate-x-0" : "max-[1280px]:translate-x-full"}`}
+            >
+              <div className="filter-scrollbar top-5 h-full w-full overflow-scroll pb-10">
+                <PriceRangeSelector />
+                <AvailablitySelector />
+                <CarBrandsSelector />
+                <SeatsRangeSelector />
+                <YearRangeSelector />
+                <TransmissionSelector />
+                <EngineTypeSelector />
+              </div>
+            </div>
+          </UseOutClickDetect>
+          <div className="mb-20">
             <div className="border-border flex items-center justify-between rounded-lg border-none">
               <div className="flex flex-wrap items-center">
+                <Button
+                  onClick={() => setIsOpen((prev) => !prev)}
+                  className="border-border hover:text-text-lite border-none px-4 text-xl hover:border hover:bg-transparent min-[1280px]:hidden"
+                >
+                  <RiMenuFill />
+                </Button>
                 {vehicleTypes.map((type) => (
                   <div key={type}>
                     <Button className="border-none px-4 py-2 hover:text-white">

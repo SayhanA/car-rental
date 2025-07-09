@@ -1,4 +1,5 @@
 import { Form, Formik } from "formik";
+import Button from "./Button";
 import FormikInput from "./FormikInput";
 import RangeSelectors from "./RangeSelectors";
 
@@ -58,12 +59,12 @@ const YearRangeSelector = () => {
           ))}
 
           {/* Submit Button */}
-          <button
+          <Button
             type="submit"
-            className="bg-primary hover:bg-primary-dark focus:ring-primary mt-4 w-full rounded-md px-4 py-2 text-white focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:outline-none"
+            className="bg-primary mt-4 w-full rounded-md bg-blue-600 px-4 py-2 text-white focus:outline-none"
           >
             Apply
-          </button>
+          </Button>
         </Form>
       </Formik>
     </RangeSelectors>

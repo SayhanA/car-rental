@@ -6,6 +6,7 @@ import FuelSvg from "../../assets/svgs/FuelSvg";
 import LocationSvg from "../../assets/svgs/LocationSvg";
 import PersonSvg from "../../assets/svgs/PersonSvg";
 import Button from "./Button";
+import TextLg from "./TextLg";
 
 const Card = ({ className = "", data = "", ...props }) => {
   const { t } = useTranslation();
@@ -39,7 +40,7 @@ const Card = ({ className = "", data = "", ...props }) => {
         </span>
       </div>
       <div className="mt-1 p-4 text-left">
-        <h3 className="text-text-dark text-lg font-medium">{make}</h3>
+        <TextLg className="text-text-dark text-lg font-medium">{make}</TextLg>
         <p className="text-text-lite text-sm">
           {model} {type}
         </p>

@@ -37,9 +37,19 @@ const AvailablitySelector = () => {
         validate={validate}
         onSubmit={handleSubmit}
       >
-        <Form className="flex flex-row gap-4">
-          <FormikInput type="date" name="Starting" label="Starting Date:" />
-          <FormikInput type="date" name="Ending" label="Ending Date:" />
+        <Form className="flex flex-row items-center justify-between gap-5">
+          <FormikInput
+            type="date"
+            name="Starting"
+            label="Starting Date:"
+            inputClassName="w-32"
+          />
+          <FormikInput
+            type="date"
+            name="Ending"
+            label="Ending Date:"
+            inputClassName="w-32"
+          />
         </Form>
       </Formik>
     </RangeSelectors>
