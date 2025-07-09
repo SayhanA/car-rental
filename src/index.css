@@ -158,3 +158,29 @@ body {
     transform: translate(calc(10% - 0.5rem));
   }
 }
+
+/* Scroll bar */
+
+/* Target scrollbar width */
+::-webkit-scrollbar {
+  width: 1px; /* Adjust to desired thinness */
+}
+
+/* Optional: Track background */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Optional: Thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.filter-scrollbar::-webkit-scrollbar {
+  width: 1px;
+}

@@ -52,7 +52,7 @@ const AllCars = () => {
       <div className="container mx-auto">
         <div className="flex gap-10">
           <div className="relative min-w-[350px]">
-            <div className="w-full">
+            <div className="filter-scrollbar top-5 w-full overflow-y-auto pb-10">
               <PriceRangeSelector />
               <AvailablitySelector />
               <SeatsRangeSelector />

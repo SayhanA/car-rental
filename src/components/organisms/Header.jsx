@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import LogoSvg from "../../assets/svgs/LogoSvg";
 import Button from "../atoms/Button";
 import LanguageDropdown from "../atoms/LanguageDropdown";
 import SearchBar from "../atoms/SearchBar";
@@ -40,7 +39,12 @@ const Header = () => {
           id="logo"
           className="mx-auto flex flex-row flex-nowrap items-center gap-2 lg:mx-0"
         >
-          <LogoSvg className="text-text-dark w-12" />
+          {/* <LogoSvg className="text-text-dark w-12" /> */}
+          <img
+            src="/favicon.ico"
+            className="h-10 w-10"
+            alt="TransRent Company"
+          />
           <p className="text-text-dark inline-block text-2xl font-bold">
             {t("Trans")}
             <span className="text-blue-500">{t("Ren")}</span>

@@ -17,7 +17,7 @@ const About = () => {
           </HeroTitle>
 
           <TextXL className="max-w-[801px] text-center">
-            At TransRent, we make vehicle rental simple, affordable, and
+            At RideKroy, we make vehicle rental simple, affordable, and
             stress-free. Whether you're heading out for business, travel, or
             daily commuting — choose from our wide range of well-maintained
             vehicles and enjoy flexible pricing, easy booking, and excellent
@@ -151,11 +151,11 @@ const About = () => {
         <div className="container mx-auto text-center">
           <h2 className="mb-6 text-2xl font-bold">Customer Testimonials</h2>
           <p className="text-text-lite mb-4 text-lg">
-            "TransRent made my trip so much easier! The car was in great
+            "RideKroy made my trip so much easier! The car was in great
             condition and the service was excellent." - Jane Doe
           </p>
           <p className="text-text-lite mb-4 text-lg">
-            "I love how affordable and convenient TransRent is. Highly
+            "I love how affordable and convenient RideKroy is. Highly
             recommend!" - John Smith
           </p>
         </div>

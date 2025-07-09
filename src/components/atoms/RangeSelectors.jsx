@@ -12,7 +12,7 @@ const RangeSelectors = ({
   return (
     <div
       className={twMerge(
-        `shadow-shadow relative mt-5 h-fit w-full rounded-lg shadow-xl ${className}`,
+        `shadow-shadow relative mt-2 h-fit w-full rounded-lg shadow-xl ${className}`,
       )}
       {...props}
     >
@@ -36,7 +36,7 @@ const RangeSelectors = ({
 
       <div
         className={twMerge(
-          `h-0 w-full overflow-hidden transition-all peer-checked:h-40 peer-checked:p-7 ${childrenClassName}`,
+          `peer-checked:border-border text-text-light h-0 w-full overflow-hidden p-0 px-7 transition-all ease-in-out peer-checked:h-fit peer-checked:border-0 peer-checked:border-t-2 peer-checked:py-5 ${childrenClassName}`,
         )}
       >
         {children}

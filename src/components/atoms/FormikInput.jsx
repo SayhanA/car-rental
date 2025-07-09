@@ -17,7 +17,7 @@ const FormikInput = ({
     <div className={twMerge("mb-4", className)}>
       {label && (
         <label
-          htmlFor={name}
+          htmlFor={label}
           className={twMerge(
             "mb-1 block font-medium text-gray-700",
             labelClassName,
@@ -28,7 +28,7 @@ const FormikInput = ({
       )}
 
       <Field
-        id={name}
+        id={label || name}
         name={name}
         type={type}
         className={twMerge(
