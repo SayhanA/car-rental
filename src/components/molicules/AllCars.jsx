@@ -99,18 +99,18 @@ const AllCars = () => {
               {carData.slice(0, visibleCars).map((car) => (
                 <Card key={car?.id} data={car} />
               ))}
+              {/* Sentinel div for IntersectionObserver */}
+              {visibleCars < carData.length && (
+                <div
+                  ref={loaderRef}
+                  className="mt-10 h-10 text-center text-sm text-gray-400"
+                >
+                  Loading more cars...
+                </div>
+              )}
             </div>
           </div>
         </div>
-        {/* Sentinel div for IntersectionObserver */}
-        {visibleCars < carData.length && (
-          <div
-            ref={loaderRef}
-            className="mt-10 h-10 text-center text-sm text-gray-400"
-          >
-            Loading more cars...
-          </div>
-        )}
       </div>
     </section>
   );
