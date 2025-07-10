@@ -1,6 +1,7 @@
 import { ErrorMessage, Field } from "formik";
 import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
+import Text from "./Text";
 
 const FormikInput = ({
   name,
@@ -23,7 +24,7 @@ const FormikInput = ({
             labelClassName,
           )}
         >
-          {t(label)}
+          <Text>{t(label)}</Text>
         </label>
       )}
 
@@ -32,7 +33,7 @@ const FormikInput = ({
         name={name}
         type={type}
         className={twMerge(
-          "w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none",
+          "border-border placeholder:text-text-lite/50 w-full rounded-md border px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none",
           inputClassName,
         )}
         {...props}
