@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import Text from "./Text";
 
 const FormikInput = ({
+  id,
   name,
   label,
   type = "text",
@@ -29,7 +30,7 @@ const FormikInput = ({
       )}
 
       <Field
-        id={label || name}
+        id={id}
         name={name}
         type={type}
         className={twMerge(

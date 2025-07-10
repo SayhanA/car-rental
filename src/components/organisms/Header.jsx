@@ -7,7 +7,7 @@ import SearchBar from "../atoms/SearchBar";
 import ThemeToggle from "../atoms/ThemeToggle";
 import Navbar from "../molicules/Navbar";
 import Sidebar from "../molicules/Sidebar";
-import Signup from "./Signup";
+import AuthForms from "./AuthForms";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -57,7 +57,7 @@ const Header = () => {
             <LanguageDropdown />
             <ThemeToggle />
           </div>
-          <Signup />
+          <AuthForms />
         </div>
       </div>
     </header>

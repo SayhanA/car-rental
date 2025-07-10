@@ -1,4 +1,5 @@
 import { FaFacebook, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import team from "../assets/images/team.jpg"; // Example image, replace with your actual image path
 import Button from "../components/atoms/Button";
 import HeroTitle from "../components/atoms/HeroTitle";
@@ -128,22 +129,24 @@ const About = () => {
             Stay updated with our latest news and offers.
           </p>
           <div className="flex justify-center space-x-4">
-            <a
+            <Link
               href="https://facebook.com/your-page"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit our Facebook page"
               className="text-blue-600 hover:text-blue-800"
             >
               <FaFacebook className="text-2xl" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://twitter.com/your-page"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit our Twitter page"
               className="text-blue-600 hover:text-blue-800"
             >
               <FaTwitter className="text-2xl" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

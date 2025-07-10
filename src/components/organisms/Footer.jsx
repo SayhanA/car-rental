@@ -6,6 +6,7 @@ import {
   FaPhone,
   FaTwitter,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import LogoSvg from "../../assets/svgs/LogoSvg";
 import Text from "../atoms/Text";
 import TextLg from "../atoms/TextLg";
@@ -59,29 +60,29 @@ const Footer = () => {
             </TextLg>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#cars" className="hover:underline">
+                <Link to="#cars" className="hover:underline">
                   Browse Cars
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#locations" className="hover:underline">
+                <Link to="#locations" className="hover:underline">
                   Locations
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#pricing" className="hover:underline">
+                <Link to="#pricing" className="hover:underline">
                   Pricing
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:underline">
+                <Link to="#about" className="hover:underline">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="hover:underline">
+                <Link to="#contact" className="hover:underline">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -93,29 +94,29 @@ const Footer = () => {
             </TextLg>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#help" className="hover:underline">
+                <Link to="#help" className="hover:underline">
                   Help Center
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#terms" className="hover:underline">
+                <Link to="#terms" className="hover:underline">
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#privacy" className="hover:underline">
+                <Link to="#privacy" className="hover:underline">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#insurance" className="hover:underline">
+                <Link to="#insurance" className="hover:underline">
                   Insurance
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="hover:underline">
+                <Link to="#faq" className="hover:underline">
                   FAQ
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

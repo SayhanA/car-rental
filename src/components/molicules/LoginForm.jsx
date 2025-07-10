@@ -1,10 +1,8 @@
 import { Form, Formik } from "formik";
-import { Link } from "react-router-dom";
 import Button from "../atoms/Button";
 import FormikInput from "../atoms/FormikInput";
-import TextSM from "../atoms/TextSM";
 
-const LoginForm = ({ className = "" }) => {
+const LoginForm = ({ className = "", event = null }) => {
   return (
     <Formik>
       <Form className={className}>
@@ -23,14 +21,13 @@ const LoginForm = ({ className = "" }) => {
           inputClassName="text-lg"
           className="mb-0"
         />
-        <Link
-          to="/forgot-password"
-          className="mb-5 ml-auto block w-fit text-right text-sm"
+
+        <Button
+          onClick={() => event("forgotPassword")}
+          className="b-0 mt-0 mb-4 ml-auto block w-fit border-none p-0 pt-0 text-right text-blue-500 underline hover:bg-transparent"
         >
-          <TextSM className="mt-0 w-fit pt-0 text-right text-blue-500 underline">
-            Forgot Password?
-          </TextSM>
-        </Link>
+          Forgot Password?
+        </Button>
         <Button type="submit" secondary className="w-full">
           Login
         </Button>
