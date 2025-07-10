@@ -16,7 +16,6 @@ const SearchBar = ({ className = "" }) => {
       <input
         type="text"
         name="search"
-        id="search-input"
         placeholder={t("Search cars") + "..."}
         className="text-text-dark placeholder:text-text-lite w-full border-0 ps-5 pe-10 outline-0"
       />

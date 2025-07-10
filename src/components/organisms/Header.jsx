@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import LogoSvg from "../../assets/svgs/LogoSvg";
-import Button from "../atoms/Button";
 import LanguageDropdown from "../atoms/LanguageDropdown";
 import SearchBar from "../atoms/SearchBar";
 import ThemeToggle from "../atoms/ThemeToggle";
 import Navbar from "../molicules/Navbar";
 import Sidebar from "../molicules/Sidebar";
+import Signup from "./Signup";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -30,9 +30,7 @@ const Header = () => {
   }, [prevScrollPos]);
 
   return (
-    <header
-      className={`top-0 right-0 left-0 z-50 px-5 transition-transform duration-300 ease-in-out ${atTop ? "bg-transparent" : "shadow-shadow bg-background relative shadow-lg"} ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
-    >
+    <header className="">
       <div className="border-border container mx-auto flex items-center justify-between gap-10 border-0 border-b py-4">
         <Sidebar className="absolute" />
         <Link
@@ -41,11 +39,6 @@ const Header = () => {
           className="mx-auto flex flex-row flex-nowrap items-center gap-2 lg:mx-0"
         >
           <LogoSvg className="text-text-dark w-12" />
-          {/* <img
-            src="/favicon.ico"
-            className="h-10 w-10"
-            alt="TransRent Company"
-          /> */}
           <p className="text-text-dark inline-block text-2xl font-bold">
             {t("Trans")}
             <span className="text-blue-500">{t("Ren")}</span>
@@ -64,10 +57,7 @@ const Header = () => {
             <LanguageDropdown />
             <ThemeToggle />
           </div>
-          {/* <Button className="font-bold">Login</Button> */}
-          <Button className="font-bold capitalize" secondary>
-            {t("signup")}
-          </Button>
+          <Signup />
         </div>
       </div>
     </header>
