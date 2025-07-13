@@ -1,10 +1,13 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import BaseLayout from "../layout/BaseLayout";
-import About from "../pages/About";
-import Cars from "../pages/Cars";
-import Contact from "../pages/Contact";
-import Home from "../pages/Home";
-import NotFound from "../pages/NotFound";
+const CarDetails = lazy(() => import("../pages/CarDetails"));
+const UnauthorizedPage = lazy(() => import("../pages/UnauthorizedPage"));
+const Contact = lazy(() => import("../pages/Contact"));
+const NotFound = lazy(() => import("../pages/NotFound"));
+const Cars = lazy(() => import("../pages/Cars"));
+const About = lazy(() => import("../pages/About"));
+const Home = lazy(() => import("../pages/Home"));
 
 const router = createBrowserRouter([
   {
@@ -28,11 +31,18 @@ const router = createBrowserRouter([
         path: "/cars",
         element: <Cars />,
       },
-      // {
-      //   path: "*",
-      //   element: <NotFound />,
-      // },
-      // you can add more children here
+      {
+        path: "/car/:id",
+        element: (
+          // <PrivateRoute>
+          <CarDetails />
+          // </PrivateRoute>
+        ),
+      },
+      {
+        path: "/unauthorized",
+        element: <UnauthorizedPage />,
+      },
     ],
   },
 ]);

@@ -19,7 +19,6 @@ const Card = ({ className = "", data = "", ...props }) => {
     transmission,
     location,
     availability,
-    id,
     rent,
   } = data;
 

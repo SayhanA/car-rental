@@ -11,6 +11,8 @@ const carData = [
     fuelType: "Gasoline",
     transmission: "Automatic",
     location: "Los Angeles",
+    latitude: 34.0522,
+    longitude: -118.2437,
     rent: "10k",
   },
   {
@@ -25,6 +27,8 @@ const carData = [
     fuelType: "Hybrid",
     transmission: "Automatic",
     location: "San Diego",
+    latitude: 32.7157,
+    longitude: -117.1611,
     rent: "13k",
   },
   {
@@ -39,6 +43,8 @@ const carData = [
     fuelType: "Electric",
     transmission: "Automatic",
     location: "San Francisco",
+    latitude: 37.7749,
+    longitude: -122.4194,
     rent: "13k",
   },
   {
@@ -53,6 +59,8 @@ const carData = [
     fuelType: "Gasoline",
     transmission: "Automatic",
     location: "Los Angeles",
+    latitude: 34.0522,
+    longitude: -118.2437,
     rent: "10k",
   },
   {
@@ -67,6 +75,8 @@ const carData = [
     fuelType: "Hybrid",
     transmission: "Automatic",
     location: "San Diego",
+    latitude: 32.7157,
+    longitude: -117.1611,
     rent: "13k",
   },
   {
@@ -81,6 +91,8 @@ const carData = [
     fuelType: "Electric",
     transmission: "Automatic",
     location: "San Francisco",
+    latitude: 37.7749,
+    longitude: -122.4194,
     rent: "13k",
   },
   {
@@ -95,6 +107,8 @@ const carData = [
     fuelType: "Gasoline",
     transmission: "Automatic",
     location: "Los Angeles",
+    latitude: 34.0522,
+    longitude: -118.2437,
     rent: "10k",
   },
   {
@@ -109,6 +123,8 @@ const carData = [
     fuelType: "Hybrid",
     transmission: "Automatic",
     location: "San Diego",
+    latitude: 32.7157,
+    longitude: -117.1611,
     rent: "13k",
   },
   {
@@ -123,6 +139,8 @@ const carData = [
     fuelType: "Electric",
     transmission: "Automatic",
     location: "San Francisco",
+    latitude: 37.7749,
+    longitude: -122.4194,
     rent: "13k",
   },
   {
@@ -137,6 +155,8 @@ const carData = [
     fuelType: "Gasoline",
     transmission: "Automatic",
     location: "Los Angeles",
+    latitude: 34.0522,
+    longitude: -118.2437,
     rent: "10k",
   },
   {
@@ -151,6 +171,8 @@ const carData = [
     fuelType: "Hybrid",
     transmission: "Automatic",
     location: "San Diego",
+    latitude: 32.7157,
+    longitude: -117.1611,
     rent: "13k",
   },
   {
@@ -165,6 +187,8 @@ const carData = [
     fuelType: "Electric",
     transmission: "Automatic",
     location: "San Francisco",
+    latitude: 37.7749,
+    longitude: -122.4194,
     rent: "13k",
   },
   {
@@ -179,6 +203,8 @@ const carData = [
     fuelType: "Gasoline",
     transmission: "Automatic",
     location: "Los Angeles",
+    latitude: 34.0522,
+    longitude: -118.2437,
     rent: "10k",
   },
   {
@@ -193,6 +219,8 @@ const carData = [
     fuelType: "Hybrid",
     transmission: "Automatic",
     location: "San Diego",
+    latitude: 32.7157,
+    longitude: -117.1611,
     rent: "13k",
   },
   {
@@ -207,6 +235,8 @@ const carData = [
     fuelType: "Electric",
     transmission: "Automatic",
     location: "San Francisco",
+    latitude: 37.7749,
+    longitude: -122.4194,
     rent: "13k",
   },
   {
@@ -221,6 +251,8 @@ const carData = [
     fuelType: "Gasoline",
     transmission: "Automatic",
     location: "Los Angeles",
+    latitude: 34.0522,
+    longitude: -118.2437,
     rent: "10k",
   },
   {
@@ -235,6 +267,8 @@ const carData = [
     fuelType: "Hybrid",
     transmission: "Automatic",
     location: "San Diego",
+    latitude: 32.7157,
+    longitude: -117.1611,
     rent: "13k",
   },
   {
@@ -249,6 +283,8 @@ const carData = [
     fuelType: "Electric",
     transmission: "Automatic",
     location: "San Francisco",
+    latitude: 37.7749,
+    longitude: -122.4194,
     rent: "13k",
   },
   {
@@ -263,6 +299,8 @@ const carData = [
     fuelType: "Gasoline",
     transmission: "Automatic",
     location: "Los Angeles",
+    latitude: 34.0522,
+    longitude: -118.2437,
     rent: "10k",
   },
   {
@@ -277,6 +315,8 @@ const carData = [
     fuelType: "Hybrid",
     transmission: "Automatic",
     location: "San Diego",
+    latitude: 32.7157,
+    longitude: -117.1611,
     rent: "13k",
   },
   {
@@ -291,6 +331,8 @@ const carData = [
     fuelType: "Electric",
     transmission: "Automatic",
     location: "San Francisco",
+    latitude: 37.7749,
+    longitude: -122.4194,
     rent: "13k",
   },
   {
@@ -305,6 +347,8 @@ const carData = [
     fuelType: "Gasoline",
     transmission: "Automatic",
     location: "Los Angeles",
+    latitude: 34.0522,
+    longitude: -118.2437,
     rent: "10k",
   },
 ];

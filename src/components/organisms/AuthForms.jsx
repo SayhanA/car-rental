@@ -1,7 +1,13 @@
-import { useState } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
 import { formOrder, toggleTextMap } from "../../data/authData";
 import useScrollLock from "../../hooks/useScrollLock";
+import {
+  closeAuthModal,
+  goToPreviousForm,
+  openAuthModal,
+  setAuthForm,
+} from "../../store/slices/authModalSlice";
 import Button from "../atoms/Button";
 import Text from "../atoms/Text";
 import TextXL from "../atoms/TextXL";
@@ -13,31 +19,17 @@ import ResetPasswordForm from "../molicules/ResetPasswordForm";
 import Signupform from "../molicules/Signupform";
 
 const AuthForms = () => {
-  const [currentForm, setCurrentForm] = useState("registration");
-  const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const { isOpen, currentForm } = useSelector((state) => state.authModal);
 
   useScrollLock(isOpen);
-
-  const handleToggler = (formKey) => {
-    setCurrentForm(formKey);
-  };
-
-  const goToPrevious = () => {
-    const currentIndex = formOrder.indexOf(currentForm);
-    if (currentIndex > 0) {
-      setCurrentForm(formOrder[currentIndex - 1]);
-    }
-  };
 
   const toggleInfo = toggleTextMap[currentForm];
 
   return (
     <>
       <Button
-        onClick={() => {
-          handleToggler("login");
-          setIsOpen(true);
-        }}
+        onClick={() => dispatch(openAuthModal())}
         className="font-bold"
         secondary
       >
@@ -49,17 +41,21 @@ const AuthForms = () => {
           isOpen ? "fixed" : "hidden scale-0 opacity-0"
         }`}
       >
-        <UseOutClickDetect onOutsideClick={() => setIsOpen(false)}>
+        <UseOutClickDetect onOutsideClick={() => dispatch(closeAuthModal())}>
           <div className="bg-background/80 relative rounded-lg p-6 shadow-lg md:w-md">
             <TextXL className="mb-4 text-center text-2xl font-bold capitalize">
               {currentForm.replace(/([A-Z])/g, " $1")}
             </TextXL>
 
-            {currentForm === "login" && <LoginForm event={handleToggler} />}
+            {currentForm === "login" && (
+              <LoginForm event={(key) => dispatch(setAuthForm(key))} />
+            )}
             {currentForm === "registration" && <Signupform />}
             {currentForm === "OTP" && <OtpForm />}
             {currentForm === "forgotPassword" && (
-              <ForgotPasswordForm onSuccess={handleToggler} />
+              <ForgotPasswordForm
+                onSuccess={(key) => dispatch(setAuthForm(key))}
+              />
             )}
             {currentForm === "resetPassword" && <ResetPasswordForm />}
 
@@ -80,7 +76,7 @@ const AuthForms = () => {
               <div className="mt-4 flex items-center justify-center gap-2 text-center text-sm">
                 <Text>{toggleInfo.label}</Text>
                 <Button
-                  onClick={() => handleToggler(toggleInfo.action)}
+                  onClick={() => dispatch(setAuthForm(toggleInfo.action))}
                   className="m-0 inline-block border-0 p-0 text-blue-500 hover:bg-transparent hover:underline"
                 >
                   <Text className="inline-block bg-none text-blue-500 capitalize">
@@ -91,7 +87,7 @@ const AuthForms = () => {
             )}
             {formOrder.indexOf(currentForm) > 0 && (
               <Button
-                onClick={goToPrevious}
+                onClick={() => dispatch(goToPreviousForm())}
                 className="m-0 mx-auto mt-2 flex items-center gap-3 border-none p-0 text-blue-600 hover:bg-transparent"
               >
                 <FaArrowLeftLong /> Back

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { RiMenuFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 import carData from "../../data/featureCarList";
 import UseOutClickDetect from "../../hooks/UseOutClickDetect";
 import useScrollLock from "../../hooks/useScrollLock";
@@ -57,17 +58,6 @@ const AllCars = () => {
     <section className="mx-5 my-10 min-h-screen overflow-hidden">
       <div className="container mx-auto">
         <div className="flex gap-5 min-[1400px]:gap-10">
-          {/* <div className="hidden min-[1280px]:block">
-            <div className="filter-scrollbar top-5 h-full w-full overflow-scroll pb-10">
-              <PriceRangeSelector />
-              <AvailablitySelector />
-              <CarBrandsSelector />
-              <SeatsRangeSelector />
-              <YearRangeSelector />
-              <TransmissionSelector />
-              <EngineTypeSelector />
-            </div>
-          </div> */}
           <UseOutClickDetect
             onOutsideClick={() => {
               setIsOpen(false);
@@ -129,7 +119,12 @@ const AllCars = () => {
             </div>
             <div className="mt-7 grid justify-items-center gap-6 gap-y-14 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {carData.slice(0, visibleCars).map((car) => (
-                <Card key={car?.id} data={car} />
+                <Link to={`/car/${car?.id}`} key={car?.id}>
+                  <Card
+                    data={car}
+                    className="hover:bg-bg-secondary transition-all hover:scale-[101%] hover:cursor-pointer hover:drop-shadow-2xl"
+                  />
+                </Link>
               ))}
               {/* Sentinel div for IntersectionObserver */}
               {visibleCars < carData.length && (
