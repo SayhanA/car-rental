@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import BaseLayout from "../layout/BaseLayout";
+const BookingPage = lazy(() => import("../pages/BookingPage"));
 const CarDetails = lazy(() => import("../pages/CarDetails"));
 const UnauthorizedPage = lazy(() => import("../pages/UnauthorizedPage"));
 const Contact = lazy(() => import("../pages/Contact"));
@@ -36,6 +37,14 @@ const router = createBrowserRouter([
         element: (
           // <PrivateRoute>
           <CarDetails />
+          // </PrivateRoute>
+        ),
+      },
+      {
+        path: "/booking/:id",
+        element: (
+          // <PrivateRoute>
+          <BookingPage />
           // </PrivateRoute>
         ),
       },

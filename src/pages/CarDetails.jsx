@@ -26,7 +26,7 @@ const CarDetails = () => {
           <TextSM>Back to all cars</TextSM>
         </Button>
 
-        <CarDescriptionImage price={car.price} rent={car.rent} />
+        <CarDescriptionImage price={car.price} rent={car.rent} id={id} />
 
         <CarDetailInfo car={car} />
 
