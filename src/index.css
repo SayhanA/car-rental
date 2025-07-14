@@ -53,7 +53,7 @@
 
   --icon: rgba(122, 123, 125, 1);
   --text-dark: rgb(0, 0, 0);
-  --text-lite: rgb(66, 64, 64);
+  --text-lite: rgb(86, 86, 86);
 }
 
 .dark {
@@ -183,4 +183,55 @@ body {
 
 .filter-scrollbar::-webkit-scrollbar {
   width: 1px;
+}
+
+/* Date picker css */
+/* .rdrStartEdge,
+.rdrEndEdge {
+  color: rgb(133, 103, 103) !important;
+}
+
+.rdrStartEdge .rdrDayNumber {
+  color: white !important;
+} */
+
+.rdrDaySelected .rdrDayNumber span {
+  color: white !important;
+}
+
+.rdrDay .rdrDayWeekend .rdrDayEndOfWeek {
+  color: white !important;
+}
+
+.rdrDay {
+  color: var(--text-dark) !important;
+}
+
+.rdrDayDisabled {
+  background-color: var(--background) !important;
+  color: var(--text-lite) !important;
+}
+
+.rdrDay .rdrDayDisabled {
+}
+
+.rdrDateDisplayWrapper,
+.rdrMonthAndYearWrapper {
+  background-color: var(--background) !important;
+  color: var(--text-dark);
+}
+
+.rdrNextPrevButton,
+.rdrPprevButton {
+  background-color: var(--background) !important;
+  color: var(--text-dark);
+}
+
+.rdrDateDisplayItem {
+  background-color: var(--background) !important;
+}
+
+input {
+  color: var(--text-dark) !important;
+  border: var(--border) !important;
 }

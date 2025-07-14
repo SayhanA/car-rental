@@ -57,7 +57,7 @@ const RentalConditions = () => {
         </div>
 
         {/* Insurance Info */}
-        <div className="rounded-lg bg-blue-50 p-4">
+        <div className="border-border rounded-lg border p-4">
           <h3 className="mb-2 text-lg font-semibold text-blue-700">
             Insurance Information
           </h3>

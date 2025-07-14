@@ -11,7 +11,7 @@ const ShowImages = () => {
   const [image, setImage] = useState(carImage);
 
   return (
-    <div className="h-fit w-full">
+    <div className="h-full w-full">
       <SecureImage
         image={image}
         className="h-full min-h-[300px] w-full rounded-2xl object-cover sm:max-h-[600px] sm:min-h-[550px]"
