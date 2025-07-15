@@ -4,18 +4,10 @@ import { useState } from "react";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-
-// ✅ Multiple booked date ranges
-const bookedDateRanges = [
-  {
-    startDate: new Date(2025, 6, 15),
-    endDate: new Date(2025, 6, 17),
-  },
-  {
-    startDate: new Date(2025, 6, 20),
-    endDate: new Date(2025, 6, 22),
-  },
-];
+import { useDispatch } from "react-redux";
+import { bookedDateRanges } from "../../data/dateRange";
+import { showAlert } from "../../store/slices/alertSlice";
+import { setDates } from "../../store/slices/bookingSlice";
 
 const isDateBooked = (date) => {
   return bookedDateRanges.some((range) =>
@@ -27,6 +19,8 @@ const isDateBooked = (date) => {
 };
 
 const DateRangePicker = () => {
+  const dispatch = useDispatch();
+
   const [range, setRange] = useState([
     {
       startDate: new Date(),
@@ -34,8 +28,6 @@ const DateRangePicker = () => {
       key: "selection",
     },
   ]);
-
-  const [selectedRange, setSelectedRange] = useState({ startDate: new Date() });
 
   const handleSelect = (ranges) => {
     const selected = ranges.selection;
@@ -62,13 +54,22 @@ const DateRangePicker = () => {
     });
 
     if (hasConflict) {
-      alert("Selected range overlaps with a booked range.");
+      // alert("Selected range overlaps with a booked range.");
+      dispatch(
+        showAlert({
+          type: "info",
+          children: <p>Selected range overlaps with a booked range.</p>,
+        }),
+      );
     } else {
       setRange([selected]);
-      setSelectedRange({
-        start: format(selected.startDate, "yyyy-MM-dd"),
-        end: format(selected.endDate, "yyyy-MM-dd"),
-      });
+      dispatch(
+        setDates({
+          pickupDate: format(selected.startDate, "yyyy-MM-dd"),
+          returnDate: format(selected.endDate, "yyyy-MM-dd"),
+        }),
+      );
+
       // You can also send it to API/localStorage here
       console.log("Selected range stored:", selected);
     }

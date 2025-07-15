@@ -2,6 +2,7 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { twMerge } from "tailwind-merge";
 
 // Fix for default marker icon (important!)
 delete L.Icon.Default.prototype._getIconUrl;
@@ -12,13 +13,14 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
 
-const CarMap = ({ latitude, longitude, carData }) => {
+const CarMap = ({ className = "", latitude, longitude, carData }) => {
   return (
     <MapContainer
       center={[latitude, longitude]}
       zoom={14}
       scrollWheelZoom={false}
-      style={{ minHeight: "400px", height: "100%", width: "100%" }}
+      className={`h-full min-h-[400px] w-full ${twMerge(className)}`}
+      // style={{ minHeight: "400px", height: "100%", width: "100%" }}
     >
       <TileLayer
         attribution='© <a href="https://osm.org/copyright">OpenStreetMap</a>'

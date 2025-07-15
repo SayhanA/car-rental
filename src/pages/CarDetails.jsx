@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import ArrowLeft from "../assets/svgs/ArrowLeft";
 import Button from "../components/atoms/Button";
@@ -6,12 +8,20 @@ import CarDescriptionImage from "../components/molicules/CarDescriptionImage";
 import CarDetailInfo from "../components/molicules/CarDetails";
 import RentalConditions from "../components/molicules/RentalConditions";
 import carData from "../data/featureCarList";
+import { setCar } from "../store/slices/bookingSlice";
 
 const CarDetails = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const navigate = useNavigate();
 
   const car = carData.find((car) => car.id === Number(id));
+
+  useEffect(() => {
+    if (car) {
+      dispatch(setCar(car));
+    }
+  }, [car, dispatch]);
 
   return (
     <section className="mx-5">

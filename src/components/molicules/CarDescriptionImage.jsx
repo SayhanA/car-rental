@@ -12,14 +12,8 @@ const CarDescriptionImage = ({ id, rent, price }) => {
   const yesterday = new Date();
   yesterday.setDate(today.getDate() - 1);
 
-  const handleSubmit = (values) => {
-    // Redirect to booking page with car ID and dates as query params
-    const query = new URLSearchParams({
-      pickup: values.pickup,
-      return: values.return,
-    }).toString();
-
-    navigate(`/booking/${id}?${query}`);
+  const handleSubmit = () => {
+    navigate(`/booking/${id}`);
   };
 
   return (
