@@ -3,6 +3,7 @@ import { IoMdPerson } from "react-icons/io";
 import { MdDelete, MdOutlineSevereCold } from "react-icons/md";
 import { TbAutomaticGearboxFilled } from "react-icons/tb";
 import cardCar from "../../assets/images/bmw-car.png";
+import RentalCostCard from "../atoms/RentalCostCard";
 import SecureImage from "../atoms/SecureImage";
 import Text from "../atoms/Text";
 import TextXL from "../atoms/TextXL";
@@ -12,7 +13,7 @@ const BookingDescription = ({ carInfo }) => {
   return (
     <section className="mx-5">
       <div className="border-border container mx-auto mb-5 flex justify-between gap-5 rounded-md border p-2 shadow-xl">
-        <div className="border-border mb-5 w-full gap-5 border-0 border-b p-3 pb-5">
+        <div className="mb-5 w-full gap-5 p-3 pb-5">
           <div className="border-border mb-5 flex w-full gap-5 border-0 border-b p-3 pb-5">
             <SecureImage
               image={cardCar}
@@ -61,7 +62,7 @@ const BookingDescription = ({ carInfo }) => {
           </div>
           <OwnerDetails />
         </div>
-        <div className="bg-bg-secondary w-[350px] rounded-sm shadow-xl"></div>
+        <RentalCostCard />
       </div>
     </section>
   );

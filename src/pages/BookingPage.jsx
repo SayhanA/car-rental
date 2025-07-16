@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import DropOff from "../components/atoms/DropOff";
 import PickUp from "../components/atoms/PickUp";
 import BookingDescription from "../components/molicules/BookingDescription";
+import RentalAggrement from "../components/molicules/RentalAggrement";
+import RenterForm from "../components/molicules/RenterForm";
 
 const BookingPage = () => {
   const { pickupDate, returnDate, carInfo } = useSelector(
@@ -23,6 +25,8 @@ const BookingPage = () => {
         </div>
       </section>
       <BookingDescription carInfo={carInfo} />
+      <RentalAggrement />
+      <RenterForm />
     </>
   );
 };
