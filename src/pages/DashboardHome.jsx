@@ -1,10 +1,5 @@
 const DashboardHome = () => {
-  return (
-    <>
-      <aside className="border-border h-screen w-[350px] border shadow-xl"></aside>
-      <div></div>
-    </>
-  );
+  return <div>DashboardHome</div>;
 };
 
 export default DashboardHome;

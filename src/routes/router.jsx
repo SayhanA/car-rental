@@ -1,11 +1,11 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import BaseLayout from "../layout/BaseLayout";
-import Dashboard from "../layout/Dashboard";
-import AddCar from "../pages/AddCar";
-import DashboardHome from "../pages/DashboardHome";
-import ManageBooking from "../pages/ManageBooking";
-import ManageCar from "../pages/ManageCar";
+const ManageCar = lazy(() => import("../pages/ManageCar"));
+const ManageBooking = lazy(() => import("../pages/ManageBooking"));
+const DashboardHome = lazy(() => import("../pages/DashboardHome"));
+const AddCar = lazy(() => import("../pages/AddCar"));
+const Dashboard = lazy(() => import("../layout/Dashboard"));
 const BookingPage = lazy(() => import("../pages/BookingPage"));
 const CarDetails = lazy(() => import("../pages/CarDetails"));
 const UnauthorizedPage = lazy(() => import("../pages/UnauthorizedPage"));
@@ -66,11 +66,11 @@ const router = createBrowserRouter([
             element: <AddCar />,
           },
           {
-            path: "manage-car",
+            path: "manage-cars",
             element: <ManageCar />,
           },
           {
-            path: "bookings",
+            path: "manage-bookings",
             element: <ManageBooking />,
           },
         ],

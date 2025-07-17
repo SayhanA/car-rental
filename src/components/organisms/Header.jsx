@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import LogoSvg from "../../assets/svgs/LogoSvg";
 import LanguageDropdown from "../atoms/LanguageDropdown";
 import SearchBar from "../atoms/SearchBar";
@@ -10,28 +9,16 @@ import Sidebar from "../molicules/Sidebar";
 import AuthForms from "./AuthForms";
 
 const Header = () => {
+  const location = useLocation();
   const { t } = useTranslation();
-  const [isVisible, setIsVisible] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [atTop, setAtTop] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setAtTop(currentScrollPos < 20);
-      const visible = prevScrollPos > currentScrollPos || currentScrollPos < 0;
-
-      setIsVisible(visible);
-      setPrevScrollPos(currentScrollPos);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos]);
 
   return (
-    <header className="mx-5">
-      <div className="border-border container mx-auto flex items-center justify-between gap-10 border-0 border-b py-4">
+    <header
+      className={`${location.pathname.includes("dashboard") ? "border-border border-0 border-b px-5" : "mx-5 border-0"}`}
+    >
+      <div
+        className={`container mx-auto flex items-center justify-between gap-10 py-4 ${location.pathname.includes("dashboard") ? "" : "border-border border-0 border-b"}`}
+      >
         <Sidebar className="absolute" />
         <Link
           to={`/`}
