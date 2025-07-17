@@ -34,7 +34,7 @@ const FormikInput = ({
         name={name}
         type={type}
         className={twMerge(
-          "border-border placeholder:text-text-lite/50 w-full rounded-md border px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none",
+          "placeholder:text-text-lite/50 w-full rounded-md border border-black px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none",
           inputClassName,
         )}
         {...props}

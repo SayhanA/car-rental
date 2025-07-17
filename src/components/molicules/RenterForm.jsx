@@ -58,7 +58,7 @@ const RenterForm = () => {
                       name={name}
                       label={label}
                       className={className}
-                      inputClassName={inputClassName}
+                      inputClassName={`outline outline-border py-3 ${inputClassName}`}
                       {...props}
                     />
                   ),

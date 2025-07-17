@@ -30,7 +30,7 @@ const Header = () => {
   }, [prevScrollPos]);
 
   return (
-    <header className="">
+    <header className="mx-5">
       <div className="border-border container mx-auto flex items-center justify-between gap-10 border-0 border-b py-4">
         <Sidebar className="absolute" />
         <Link

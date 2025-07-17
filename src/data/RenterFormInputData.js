@@ -41,7 +41,8 @@ export const InputFields = [
     name: "licence",
     label: "Driver Driving Licence",
     className: "w-full mx-auto",
-    inputClassName: "",
+    inputClassName:
+      "h-[100px] outline-dashed outline-gray-500 bg-gray-100 cursor-pointer",
     placeholder: "Driving licence",
   },
 ];
